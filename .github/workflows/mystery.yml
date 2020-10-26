@@ -19,9 +19,15 @@ jobs:
 
     # Now get the color
     - name: Get Color
+      id: get-color
       run: |
-        ls -al
-        node -p "require('./color.js')"
+        COLOR=$(node -p "require('./color.js')")
+        echo "::set-output COLOR=color::${COLOR}"
+
+    # Now print the color
+    - name: Print Color
+      run: |
+        echo "${{ steps.get-color.outputs.COLOR }}"
 
 
     # - name: Hello world action step
