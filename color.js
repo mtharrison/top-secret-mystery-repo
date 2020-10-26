@@ -1,5 +1,3 @@
-const { pink } = require("color-name");
-
 // set a color below from
 // - pink
 // - blue

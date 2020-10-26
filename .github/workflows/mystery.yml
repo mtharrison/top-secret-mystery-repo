@@ -21,7 +21,7 @@ jobs:
     - name: Get Color
       run: |
         ls -al
-        jq
+        node -p "require('./color.js')"
 
 
     # - name: Hello world action step
