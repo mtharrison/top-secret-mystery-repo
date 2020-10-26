@@ -24,8 +24,9 @@ jobs:
         COLOR=$(node -p "require('./color.js')")
         echo "::set-output name=COLOR::${COLOR}"
 
+    # Now use an action...
     - name: Top Secret Mystery Action Step
-      uses: mtharrison/top-secret-mystery-action@v0.1.1
+      uses: mtharrison/top-secret-mystery-action@v1
       with:
         color: ${{ steps.get-color.outputs.COLOR }}
       env:
@@ -34,12 +35,3 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
         USERNAME: ${{ secrets.USERNAME }}
-
-    # - name: Hello world action step
-    #   id: hello
-    #   uses: actions/hello-world-javascript-action@v1.1
-    #   with:
-    #     who-to-greet: 'Mona the Octocat'
-    # # Use the output from the `hello` step
-    # - name: Get the output time
-    #   run: echo "The time was ${{ steps.hello.outputs.time }}"
