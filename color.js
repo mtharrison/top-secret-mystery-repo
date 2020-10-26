@@ -6,4 +6,4 @@ const { pink } = require("color-name");
 // - red
 // - green
 
-exports.color = 'pink';
+module.exports = 'pink';
