@@ -1,18 +1,25 @@
 on: [push]
 
+name: Mystery Workflow 🤔
+
 jobs:
-  mystery_job:
+  mystery:
     runs-on: ubuntu-latest
-    name: I wonder what this does...
+    name: Mystery Job
     steps:
 
     # First check the repo out
     - name: Checkout
       uses: actions/checkout@v2
 
-    # Now get the coloe
-    - name: Checkout
-      run: ls -al
+    # Setup node
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+
+    # Now get the color
+    - name: Get Color
+      run: node -p "require('./color').color"
 
 
     # - name: Hello world action step
