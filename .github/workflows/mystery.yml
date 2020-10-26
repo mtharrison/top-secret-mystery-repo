@@ -1,0 +1,40 @@
+name: A Mystery Workflow 🤔
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mystery:
+    runs-on: ubuntu-latest
+    name: Mystery Job
+    steps:
+
+    # First check the repo out
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Setup node
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+
+    # Now get the color
+    - name: Get Color
+      id: get-color
+      run: |
+        COLOR=$(node -p "require('./color.js')")
+        echo "::set-output name=COLOR::${COLOR}"
+
+    # Now use an action...
+    - name: Top Secret Mystery Action Step
+      uses: mtharrison/top-secret-mystery-action@v1
+      with:
+        color: ${{ steps.get-color.outputs.COLOR }}
+      env:
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        USERNAME: ${{ secrets.USERNAME }}
