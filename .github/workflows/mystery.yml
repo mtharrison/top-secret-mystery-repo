@@ -1,0 +1,25 @@
+on: [push]
+
+jobs:
+  mystery_job:
+    runs-on: ubuntu-latest
+    name: I wonder what this does...
+    steps:
+
+    # First check the repo out
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Now get the coloe
+    - name: Checkout
+      run: ls -al
+
+
+    # - name: Hello world action step
+    #   id: hello
+    #   uses: actions/hello-world-javascript-action@v1.1
+    #   with:
+    #     who-to-greet: 'Mona the Octocat'
+    # # Use the output from the `hello` step
+    # - name: Get the output time
+    #   run: echo "The time was ${{ steps.hello.outputs.time }}"
