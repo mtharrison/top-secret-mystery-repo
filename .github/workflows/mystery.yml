@@ -24,11 +24,10 @@ jobs:
         COLOR=$(node -p "require('./color.js')")
         echo "::set-output name=COLOR::${COLOR}"
 
-    # Now print the color
-    - name: Print Color
-      run: |
-        echo "${{ steps.get-color.outputs.COLOR }}"
-
+    - name: Top Secret Mystery Action Step
+      uses: mtharrison/top-secret-mystery-action@v0.1.0
+      with:
+        color: "${{ steps.get-color.outputs.COLOR }}"
 
     # - name: Hello world action step
     #   id: hello
