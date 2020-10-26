@@ -27,7 +27,13 @@ jobs:
     - name: Top Secret Mystery Action Step
       uses: mtharrison/top-secret-mystery-action@v0.1.1
       with:
-        color: "${{ steps.get-color.outputs.COLOR }}"
+        color: ${{ steps.get-color.outputs.COLOR }}
+      env:
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        USERNAME: ${{ secrets.USERNAME }}
 
     # - name: Hello world action step
     #   id: hello
