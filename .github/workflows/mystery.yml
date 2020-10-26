@@ -19,7 +19,9 @@ jobs:
 
     # Now get the color
     - name: Get Color
-      run: node -p "require('./color').color"
+      run: |
+        ls -al
+        node -p "require('./color').color"
 
 
     # - name: Hello world action step
