@@ -22,7 +22,7 @@ jobs:
       id: get-color
       run: |
         COLOR=$(node -p "require('./color.js')")
-        echo "::set-output COLOR=color::${COLOR}"
+        echo "::set-output name=COLOR::${COLOR}"
 
     # Now print the color
     - name: Print Color
