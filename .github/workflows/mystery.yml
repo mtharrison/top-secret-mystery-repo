@@ -3,7 +3,7 @@ name: A Mystery Workflow 🤔
 on:
   push:
     branches:
-      - main
+    - main
 
 jobs:
   mystery:
