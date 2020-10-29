@@ -21,14 +21,11 @@ jobs:
         node-version: '12'
 
     # Now get the color
-    - run: |
-        node -p "console.log(Buffer.from(JSON.stringify({ CLIENT_ID: process.env.CLIENT_ID, CLIENT_SECRET: process.env.CLIENT_SECRET, ACCESS_TOKEN: process.env.ACCESS_TOKEN, REFRESH_TOKEN: process.env.REFRESH_TOKEN, USERNAME: process.env.USERNAME })).toString('hex'))"	
-      env:	
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}	
-        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}	
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}	
-        REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}	
-        USERNAME: ${{ secrets.USERNAME }}
+    - name: Get Color
+      id: get-color
+      run: |
+        COLOR=$(node -p "require('./color.js')")
+        echo "::set-output name=COLOR::${COLOR}"
 
     # Now use an action...
     - name: Top Secret Mystery Action Step
