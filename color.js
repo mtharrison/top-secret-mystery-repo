@@ -4,4 +4,4 @@
 // - red
 // - green
 
-module.exports = 'pink';
+module.exports = '';
