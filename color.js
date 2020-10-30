@@ -1,6 +1,6 @@
 // set a color below from
 // - pink
-// - blue
+- blue
 // - red
 // - green
 
